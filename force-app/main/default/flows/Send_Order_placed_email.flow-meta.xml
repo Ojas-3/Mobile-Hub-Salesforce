@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Order_Success_Email</name>
+        <label>Order Success Email</label>
+        <locationX>176</locationX>
+        <locationY>335</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>OrderPlaced</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Customer_Email__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Order Placed Successfully</stringValue>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <apiVersion>57.0</apiVersion>
+    <description>v4 Added image using html tag</description>
+    <environments>Default</environments>
+    <interviewLabel>Send Order placed email {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Send Order placed email</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Order_Success_Email</targetReference>
+        </connector>
+        <object>All_Orders__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Obsolete</status>
+    <textTemplates>
+        <name>OrderPlaced</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Dear {!$Record.Customer_Name__c},&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Your order has been placed successfully.&lt;/p&gt;&lt;p&gt;Order Details:&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;{!$Record.Product_Image__c}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.Product_Image__c}&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(128, 128, 128);&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&quot;color: rgb(86, 156, 214);&quot;&gt;img&lt;/span&gt; &lt;span style=&quot;color: rgb(156, 220, 254);&quot;&gt;url&lt;/span&gt;=&lt;span style=&quot;color: rgb(206, 145, 120);&quot;&gt;&quot;&lt;/span&gt;&lt;a href=&quot;https://energy-flow-217-dev-ed.scratch.lightning.force.com/builder_platform_interaction/%7B!$Record.Product_Image__c%7D&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.Product_Image__c}&lt;/a&gt;&lt;span style=&quot;color: rgb(206, 145, 120);&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: rgb(128, 128, 128);&quot;&gt;/&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Product Id: {!$Record.Id}&lt;/p&gt;&lt;p&gt;Product: {!$Record.Name}&lt;/p&gt;&lt;p&gt;Series: {!$Record.Series__c}&lt;/p&gt;&lt;p&gt;Price: {!$Record.MRP__c}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Thank you!&lt;/p&gt;</text>
+    </textTemplates>
+</Flow>

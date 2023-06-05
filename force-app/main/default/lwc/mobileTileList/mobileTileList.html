@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="Mobiles Available" icon-name="standard:account">
+        <div class="slds-p-around_medium wrapper">
+            <template if:true={mobiles.length}>
+                <div class="content">
+                    <template for:each={mobiles} for:item="mobile">
+                        <c-mobile-tile key={mobile.Id} mobile={mobile} onselected={handleMobileSelected}>
+
+                        </c-mobile-tile>
+                    </template>
+                </div>
+            </template>
+            <template if:false={mobiles.length}>
+                <c-placeholder message="No match found"></c-placeholder>
+            </template>
+
+        </div>
+    </lightning-card>
+</template>

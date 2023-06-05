@@ -1,0 +1,25 @@
+<template>
+    <lightning-card title="Filters" icon-name="standard:calibration">
+        <div class="slds-m-horizantal_medium filter_css">
+            <lightning-input label="Search key" type="search" value={filters.searchKey} onchange={handelSearchKeyChange}></lightning-input>
+            <section class="slider_section">
+                <lightning-slider label="Max Price" step="100" min="0" max="200000" value={filters.maxPrice} onchange={handleMaxPriceChange}></lightning-slider>
+            </section>
+            <section>
+                <h2>Series</h2>
+                <template if:true={series.data}>
+                    <template for:each={series.data.values} for:item="series">
+                        <lightning-input key={series.value} label={series.label} type="checkbox" data-name="series" data-value={series.value} checked onchange={handleCheckbox}></lightning-input>
+                        
+                    </template>
+                    
+                </template>
+                <template if:true={series.error}>
+                    <div>{seriesError}</div>
+                </template>
+            </section>
+            
+
+        </div>
+    </lightning-card>
+</template>

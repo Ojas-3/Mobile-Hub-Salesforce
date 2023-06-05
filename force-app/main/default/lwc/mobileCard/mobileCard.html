@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title={mobileName} icon-name="standard:apex_plugin">
+        <template if:true={recordId}>
+            <lightning-button-icon icon-name="utility:expand_alt" slot="actions" onclick={handleNavigateToRecord}></lightning-button-icon>
+            <div class="slds-m-horizontal_medium">
+                <img src={mobilePictureUrl} alt="Mobile Picture" />
+                <lightning-record-view-form onload={handleRecordLoaded} record-id={recordId} object-api-name="Mobile__c" density="compact">
+                   <lightning-output-field field-name={seriesField}></lightning-output-field>
+                   <lightning-output-field field-name={mrpField}></lightning-output-field>
+                   <lightning-output-field field-name={description}></lightning-output-field>
+                   <!--<lightning-output-field field-name={quantity}></lightning-output-field>-->
+                   <button class="slds-button slds-button_outline-brand" onclick={handleNavigateToRecord}>View Details</button>
+                </lightning-record-view-form>
+                
+            </div>
+        </template>
+        <template if:false={recordId}>
+            <c-placeholder message="Select a mobile to see details"></c-placeholder>
+        </template>
+
+    </lightning-card>
+</template>

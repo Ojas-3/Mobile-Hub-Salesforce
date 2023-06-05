@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlexiPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentName>mobileFilter</componentName>
+                <identifier>c_mobileFilter</identifier>
+            </componentInstance>
+        </itemInstances>
+        <name>left</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentName>mobileTileList</componentName>
+                <identifier>c_mobileTileList</identifier>
+            </componentInstance>
+        </itemInstances>
+        <name>center</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentName>mobileCard</componentName>
+                <identifier>c_mobileCard</identifier>
+            </componentInstance>
+        </itemInstances>
+        <name>right</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <masterLabel>Home Page</masterLabel>
+    <template>
+        <name>pageTemplate_2_7_3</name>
+    </template>
+    <type>AppPage</type>
+</FlexiPage>
